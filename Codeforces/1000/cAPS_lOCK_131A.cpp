@@ -15,6 +15,9 @@ int main(){
            return 0;
        }
    }
-   s[0] =(char) s[0] -32;
+    if(s[0]>='A' &&  s[0]<='Z')
+    s[0] = s[0] +32;
+    else
+    s[0] -= 32;
    cout<<s<<endl;
 }

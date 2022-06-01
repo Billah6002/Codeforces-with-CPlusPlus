@@ -1,4 +1,4 @@
-//wrong ans on test 4
+//
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,30 +23,32 @@ int main(){
         }
     }
     if(twos>0){
-        if(twos%2==0){
-            check += twos/2;
-        }
-        else{
-            check += (twos+1)/2;
-        }
+        check += twos/2;
+        twos %= 2;
     }
-    if(ones <threes){
+    if(threes<ones){
+        check += threes;
+        ones -= threes;
+        threes=0;
+    }
+    else if(ones<=threes){
         check += ones;
         threes -= ones;
+        ones =0;
+    }
+    if(threes>0){
         check += threes;
     }
-    else{
-        check += threes;
-        int n= ones - threes;
-        if(n>0){
-            if(n%2==0){
-                check += n/2;
-            }
-            else{
-                check += (n+1)/2;
-            }
+    
+    if(ones>0 || twos>0){
+    
+        int remain = ones + twos*2;
+        if(remain%4==0){
+            check += remain/4;
         }
-
+        else{
+            check+=(remain/4)+1;
+        }
     }
     
     cout<<check<<endl;
